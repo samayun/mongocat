@@ -1,0 +1,88 @@
+{
+  "name": "mongocat",
+  "description": "✨ Mongocat 😺 is easy to use, configuration based Denormalization mongoose plugin for read heavy applications. Mongocat reduces write complexity too.",
+  "version": "0.0.7",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "read-heavy",
+    "denormalize",
+    "denormalization",
+    "read-heavy-mongoose",
+    "denormalize-mongoose",
+    "denormalization-mongoose"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "acp": "git add . && npm run commit && git push",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release",
+    "npm:login": "npm login --registry=https://registry.npmjs.org/",
+    "npm:login:github": "npm login --registry=https://npm.pkg.github.com/",
+    "npm:publish": "export && npm publish"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "author": "Samayun Chowdhury",
+  "module": "dist/mongocat.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/mongocat.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/mongocat.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.1.0",
+    "commitizen": "4.2.5",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^8.0.1",
+    "init": "0.1.2",
+    "semantic-release": "^19.0.5",
+    "size-limit": "^8.1.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "^3.9.10"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "mongoose": "^6.6.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samayun/mongocat.git"
+  }
+}
