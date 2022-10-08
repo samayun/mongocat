@@ -287,7 +287,7 @@ export const watchConsumer = (ops: IWatchConsumer) => {
             if (strict || exceptionOnFailure) {
               return next(
                 new Error(
-                  `Denormalization failed for feild: ${toPath}, array: ${groupArray}, PLUGIN: watchConsumer, METHOD: save,consumer: ${this.model}, provider: ${fromRef}`
+                  `Denormalization failed for feild: ${toPath}, array: ${groupArray}, plugin: watchConsumer, method: save, consumer: ${toRef}, provider: ${fromRef}`
                 )
               );
             } else {
@@ -314,7 +314,7 @@ export const watchConsumer = (ops: IWatchConsumer) => {
             if (strict || exceptionOnFailure) {
               return next(
                 new Error(
-                  `Denormalization failed for feild: ${toPath}, array: ${groupArray}, PLUGIN: watchConsumer, METHOD: save, provider: ${fromRef}`
+                  `Denormalization failed for feild: ${toPath}, array: ${groupArray}, plugin: watchConsumer, method: save, consumer: ${toRef}, provider: ${fromRef}`
                 )
               );
             } else {
