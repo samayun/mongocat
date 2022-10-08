@@ -79,23 +79,23 @@ import { provider } from 'mongocat';
 
 const CategorySchema = new Schema(
   {
-     title: String,
-     slug: String,
-     icon: String,
-     status: String,
-
-},{ timestamps: true });
+    title: String,
+    slug: String,
+    icon: String,
+    status: String,
+  },
+  { timestamps: true }
+);
 
 CategorySchema.plugin(
   provider({
-    toRef: "Category"),
-    keyFields: ['title' ,'slug','icon'],
-    ignoredFields: ['status' ],
+    toRef: 'Category',
+    keyFields: ['title', 'slug', 'icon'],
+    ignoredFields: ['status'],
   })
 );
 
 export const Category = model('Category', CategorySchema);
-
 ```
 
 ```js
@@ -103,23 +103,22 @@ import { provider } from 'mongocat';
 
 const UserSchema = new Schema(
   {
-     name: String,
-     username: String,
-     email: String,
-     status: String,
-
-},{ timestamps: true });
+    name: String,
+    username: String,
+    email: String,
+    status: String,
+  },
+  { timestamps: true }
+);
 
 UserSchema.plugin(
   provider({
-    toRef: "User"),
-    keyFields: ['name' ,'username','email', 'status']
+    toRef: 'User',
+    keyFields: ['name', 'username', 'email', 'status'],
   })
 );
 
-
 export const User = model('User', UserSchema);
-
 ```
 
 #### Consumer
