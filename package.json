@@ -20,9 +20,6 @@
   "engines": {
     "node": ">=10"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
