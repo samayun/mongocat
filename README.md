@@ -1,6 +1,11 @@
 <h2 align="center"> ✨ <b>MongoCat</b> 😺 </h2>
 
-<p align="center"><img src="./docs/logo.png" alt="Mongocat" style="height:150px;margin: 0px 15%;text-align:center;"/>
+<p align="center">
+<img 
+  src="./docs/logo.png"
+  alt="Mongocat"
+  height="150px"
+  style="height:150px;margin: 0px 15%;text-align:center;"/>
 </p>
 <p align="center">
 <img src="https://img.shields.io/github/issues/samayun/mongocat" alt="Issues">
