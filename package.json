@@ -24,7 +24,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint",
+    "lint": "tsdx lint src",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
@@ -33,11 +33,11 @@
     "semantic-release": "semantic-release",
     "npm:login": "npm login --registry=https://registry.npmjs.org/",
     "npm:login:github": "npm login --registry=https://npm.pkg.github.com/",
-    "npm:publish": "export && npm publish"
+    "npm:publish": "npm publish"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "npm run lint"
     }
   },
   "prettier": {

@@ -236,13 +236,13 @@ export const watchConsumer = (ops: IWatchConsumer) => {
           plugin: 'watchConsumer',
           method: 'pre save',
           provider: fromRef,
-          consumer: toPath,
-          inArray,
+          consumer: toRef,
+          inArray: inArray ? 'array' : 'object',
           doc,
-          isNew: this.isNew,
-          isModified: {
-            [toPath]: this.isModified(toPath),
-          },
+          isNew: this.isNew ? 'creating' : 'updating',
+          modification: `${toPath} ${
+            this.isModified(toPath) ? 'is ' : 'is not'
+          } modified`,
         };
         console.log(msg);
 
@@ -264,9 +264,7 @@ export const watchConsumer = (ops: IWatchConsumer) => {
             if (strict || exceptionOnFailure) {
               return next(
                 new Error(
-                  `Denormalization failed for key: ${key}, 
-                          value: ${this[toPath][key]}, PLUGIN: watchConsumer ,
-                           METHOD: save, consumer: ${toPath}, provider: ${fromRef}`
+                  `Denormalization failed for key: ${key}, value: ${this[toPath][key]}, plugin: watchConsumer, method: save, consumer: ${toPath}, provider: ${fromRef}`
                 )
               );
             } else {
@@ -295,7 +293,7 @@ export const watchConsumer = (ops: IWatchConsumer) => {
             }
           }
 
-          console.log('PLUGIN: watchConsumer , METHOD: update on: inArray ');
+          console.log('plugin: watchConsumer , method: update on: inArray ');
 
           const ProviderModel = model(fromRef);
           /**
@@ -455,7 +453,7 @@ export const watchConsumer = (ops: IWatchConsumer) => {
             toPath: toPath,
           });
           console.log(
-            `PLUGIN: watchConsumer, METHOD: findOneAndUpdate TYPE: PRE HOOK on: inArray path: ${toPath} data: ${updateParams[toPath]}`
+            `plugin: watchConsumer, method: findOneAndUpdate TYPE: PRE HOOK on: inArray path: ${toPath} data: ${updateParams[toPath]}`
           );
           console.log({
             updateParams,
@@ -492,7 +490,7 @@ export const watchConsumer = (ops: IWatchConsumer) => {
             if (strict || exceptionOnFailure) {
               return next(
                 new Error(
-                  `Denormalization failed for feild: ${toPath}, array: ${groupArray}, PLUGIN: watchConsumer, METHOD: findOneAndUpdate, provider: ${fromRef}`
+                  `Denormalization failed for feild: ${toPath}, array: ${groupArray}, plugin: watchConsumer, method: findOneAndUpdate, provider: ${fromRef}`
                 )
               );
             } else {

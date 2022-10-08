@@ -7,7 +7,7 @@ export const unflattenObj = (data: Record<string, any>) => {
       return (
         r[e] ||
         (r[e] = isNaN(Number(keys[j + 1]))
-          ? keys.length - 1 == j
+          ? keys.length - 1 === j
             ? data[i]
             : {}
           : [])

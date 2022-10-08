@@ -66,7 +66,7 @@ export const polymorphicArrayConsumer = (ops: IPolymorphicArrayConsumer) => {
      * Event emit after provider publishing
      */
 
-    allProviders.map((provider: string) => {
+    allProviders.map((provider: string): string => {
       denormalizeEmitter.on(
         `denormalize/publish/${provider}`,
         async (data: any) => {
@@ -140,6 +140,7 @@ export const polymorphicArrayConsumer = (ops: IPolymorphicArrayConsumer) => {
           );
         }
       );
+      return `allProviders registered`;
     });
 
     /***
@@ -298,7 +299,7 @@ export const polymorphicArrayConsumer = (ops: IPolymorphicArrayConsumer) => {
           (toPathNested: Record<string, any>) => {
             const content = providers?.find(
               (_pro: Record<string, any>) =>
-                _pro[foreignKey]?.toString() ==
+                _pro[foreignKey]?.toString() ===
                 toPathNested[localKey].toString()
             );
 
@@ -409,7 +410,7 @@ export const polymorphicArrayConsumer = (ops: IPolymorphicArrayConsumer) => {
             (toPathNested: Record<string, any>) => {
               const content = providers?.find(
                 (_pro: Record<string, any>) =>
-                  _pro[foreignKey]?.toString() ==
+                  _pro[foreignKey]?.toString() ===
                   toPathNested[localKey].toString()
               );
 

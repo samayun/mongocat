@@ -1,0 +1,16 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "env": {
+    "node": true
+  },
+  "ignorePatterns": "src/app/modules/swagger/penguin-swagger-autogen",
+  "rules": {
+    "consistent-return": "off",
+    "global-require": 0,
+    "import/no-dynamic-require": 0,
+    "no-underscore-dangle": 0,
+    "--no-ignore": 0,
+    "import/no-extraneous-dependencies": 0
+  }
+}

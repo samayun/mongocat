@@ -97,7 +97,7 @@ export const polymorphicConsumer = (ops: IPolymorphicConsumer) => {
      * Event emit after provider publishing
      */
 
-    allProviders.map((provider: string) => {
+    allProviders.map((provider: string): string => {
       denormalizeEmitter.on(
         `denormalize/publish/${provider}`,
         async (data: any) => {
@@ -169,6 +169,7 @@ export const polymorphicConsumer = (ops: IPolymorphicConsumer) => {
           );
         }
       );
+      return `allProviders registered`;
     });
 
     /***
@@ -307,9 +308,9 @@ export const polymorphicConsumer = (ops: IPolymorphicConsumer) => {
       }
 
       if (denormWhen && doc[denormWhen['field']]) {
-        if (denormWhen['is'] && denormWhen['is'] != doc[denormWhen['field']])
+        if (denormWhen['is'] && denormWhen['is'] !== doc[denormWhen['field']])
           return;
-        if (denormWhen['ne'] && denormWhen['ne'] == doc[denormWhen['field']])
+        if (denormWhen['ne'] && denormWhen['ne'] === doc[denormWhen['field']])
           return;
         if (
           denormWhen['in'] &&
@@ -534,9 +535,9 @@ export const polymorphicConsumer = (ops: IPolymorphicConsumer) => {
         }
 
         if (denormWhen && doc[denormWhen['field']]) {
-          if (denormWhen['is'] && denormWhen['is'] != doc[denormWhen['field']])
+          if (denormWhen['is'] && denormWhen['is'] !== doc[denormWhen['field']])
             return;
-          if (denormWhen['ne'] && denormWhen['ne'] == doc[denormWhen['field']])
+          if (denormWhen['ne'] && denormWhen['ne'] === doc[denormWhen['field']])
             return;
           if (
             denormWhen['in'] &&
