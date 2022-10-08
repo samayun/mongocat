@@ -11,6 +11,7 @@ export const updateQueryMethods = {
 };
 
 export * from './plugins/Provider';
+export * from './plugins/Consumer';
 export * from './plugins/WatchConsumer';
 export * from './plugins/PolymorphicConsumer';
 export * from './plugins/PolymorphicArrayConsumer';

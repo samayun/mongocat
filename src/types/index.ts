@@ -7,6 +7,16 @@ export interface IProvider {
   // publish?: (data: any) => void;
 }
 
+export interface IConsumer {
+  fromRef: string;
+  toPath?: string;
+  key?: string;
+  as?: Record<string, any>;
+  inArray?: boolean;
+  withTimestamp?: boolean;
+  toRef?: string; // string | undefined;
+}
+
 export interface IWatchConsumer {
   changeStreamEnabled?: boolean;
   key?: string;
